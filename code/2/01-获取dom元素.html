@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<div id="app"></div>
+	<script type="text/javascript" src="vue.js"></script>
+	<script type="text/javascript">
+		Vue.component('subCom',{
+			template:`
+			<div class='subCom'>
+				
+			</div>`
+		});
+		var App={
+			template:`<div class='app'>
+				<button ref='btn'>我是按钮1</button>
+				<button ref='btn2'>我是按钮2</button>
+				<subCom ref='abc'/>
+			</div>`,
+			mounted(){
+				console.log(this.$refs.btn);
+				console.log(this.$refs.btn2);
+				console.log(this.$refs.abc);
+			}
+		};
+		new Vue({
+			el:'#app',
+			data(){
+				return{
+
+				}
+			},
+			template:`<App></App>`,
+			components:{
+				App
+			}
+		});
+	</script>
+	
+</body>
+</html>

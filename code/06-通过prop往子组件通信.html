@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title> </title>
+</head>
+<body>
+	<div id="app"></div>
+	<script type="text/javascript" src="./node_modules/vue/dist/vue.min.js"></script>
+	<script type="text/javascript">
+		Vue.component('Child',{
+			template:`
+			<div>
+			<p>我是子组件{{childdata}}</p>
+			<input type="text" v-model='childdata'>
+			
+			</div>`,
+			props:['childdata']
+		});
+		Vue.component('Parent',{
+			data(){
+				return{
+					msg:'我是父组件的数据'
+				}
+			},
+			template:`<div>
+			<p>
+			我是父组件</p>
+			<Child :childdata='msg'/>
+			
+			</div>`
+		});
+		var App={
+			template:``
+		}
+		new Vue({
+			el:'#app',
+			data(){
+				return{
+
+				}
+			},
+			template:`<div>
+			<Parent/>
+			
+			</div>`
+		});
+
+	</script>
+</body>
+</html>

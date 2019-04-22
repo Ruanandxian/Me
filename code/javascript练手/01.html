@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+    
+<body>
+    <div id="app">
+        {{imgs}}
+    </div>
+    <!--1.引包-->
+    <script type="text/javascript" src="./node_modules/vue/dist/vue.js"></script>
+
+    <script type="text/javascript">
+        new Vue({
+            el:"#app'",
+            data(){
+                return{
+                    imgs:{
+            tu1:'https://api.dujin.org/pic/',
+            tu2:'https://api.dujin.org/pic/',
+            tu3:'https://api.dujin.org/pic/',
+        }
+                }
+            }
+
+        });
+    </script>
+    
+</body>
+</html>

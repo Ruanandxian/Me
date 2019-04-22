@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+</head>
+	
+<body>
+	<div id="app">
+		<h2>{{msg}}</h2>
+		<h3>{{isTure}}</h3>
+		<h4>{{str.split('').reverse().join('')}}</h4>
+		<h5>{{ {'name':'张三'} }}</h5>
+	</div>
+	<!--1.引包-->
+	<script type="text/javascript" src="./node_modules/vue/dist/vue.js"></script>
+
+	<script type="text/javascript">
+		var data={
+				msg:'黄瓜',
+				isTure:1+1,
+				str:'hello world'
+			}
+		var vm=new Vue({
+			el:'#app',
+			data:data,
+			template:''
+		});
+		console.log(vm.$el===document.getElementById('app'));
+		console.log(vm.$data===data);
+	//创建实例化对象
+	</script>
+	
+</body>
+</html>

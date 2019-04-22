@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<div id="app"></div>
+	<script type="text/javascript" src="./node_modules/vue/dist/vue.min.js"></script>
+
+	<script type="text/javascript">
+		Vue.component('Vbtn',{
+			template:`
+			<button>按钮</button>`
+		});
+		var Vheader={
+			data(){
+				return{
+
+				}
+			},
+			template:`
+			<div>
+			我是头部组件
+			
+			</div>`,
+			methods:{
+
+			}, 
+		};
+		var Vasider={
+			template:`
+			<div>
+			我是侧边栏
+			
+			</div>`
+		};
+		var Vcontent={
+			template:`
+			<div>
+			我是内容组件
+			<Vbtn/>
+			<Vbtn/>
+			<Vbtn/>
+			
+			</div>`
+		};
+		var App={
+			template:`<div>
+			<Vheader/>
+			<div>
+			<Vasider/>
+			<Vcontent/>
+			</div>
+			</div>`,
+			components:{
+				Vheader,
+				Vasider,
+				Vcontent
+			}
+		};
+		new Vue({
+			el:'#app',
+			data(){
+				return{
+
+				}
+			},
+			components:{
+				App
+			},
+
+			template:`<App></App>`
+		});
+	</script>
+
+</body>
+</html>

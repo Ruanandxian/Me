@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<div id="app">
+	</div>
+	<script type="text/javascript" src="./node_modules/vue/dist/vue.min.js"></script>
+	<script type="text/javascript">
+		var App={
+			data(){
+				return{
+
+				}
+			},
+			methods:{
+				clickHandler(){
+					console.log(this);
+				}
+			},
+			template:`<div>我是入口组件
+			<button @click='clickHandler'>按钮</button>
+			</div>`
+
+		};
+
+		new Vue({
+			el:"#app",
+			data(){
+				return{
+
+				}
+			},
+			components:{
+				App
+			},
+ 			template:`<App></App>`
+
+
+		});
+
+	</script>
+</body>
+</html>

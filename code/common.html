@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<div id='app'></div>
+	<script type="text/javascript" src='./node_modules/vue/dist/vue.min.js'></script>
+	<script type="text/javascript" src='./node_modules/axios/dist/axios.js'></script>
+	<script type="text/javascript">
+		var App={
+			template:`
+			<div>
+				<button @click='sendAjax'>发请求</button>
+			</div>`,
+			methods:{
+				sendAjax(){
+					this.$axios.get('http://v.juhe.cn/toutiao/index?type=top&key=60902e4207be00f0fdc3be9fa9b74006')
+					.then(res=>{
+						console.log(res);
+					})
+					.catch(err=>{
+						console.log(err);
+					})
+				}
+
+			}
+		};
+		Vue.prototype.$axios=axios;
+		new Vue({
+			el:'#app',
+			template:`<App/>`,
+			components:{
+				App
+			}
+		});
+
+	</script>
+</body>
+</html>

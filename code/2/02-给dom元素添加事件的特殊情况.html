@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<div id="app"></div>
+	<script type="text/javascript" src="vue.js"></script>
+	<script type="text/javascript">
+		var App={
+			data(){
+				return{
+					isShow:false
+
+				}
+			},
+			template:`<div class='app'>
+				<input type="text" v-show='isShow' ref='input'/>
+			</div>`,
+			mounted(){
+				this.isShow=true;
+				console.log(this.$refs.input);
+				// $nextTick()实在dom更新循环结束之后执行回调函数，在修改数据之后使用此方法，在回调中获取到更新之后的Dom
+				this.$nextTick(()=>{
+					console.log(this)
+					this.$refs.input.focus();
+				})
+
+			}
+		};
+		new Vue({
+			el:'#app',
+			data(){
+				return{
+
+				}
+			},
+			template:`<App></App>`,
+			components:{
+				App
+			}
+		});
+	</script>
+	
+</body>
+</html>

@@ -1,0 +1,64 @@
+	<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body><div id="app"></div>
+	<script type="text/javascript" src="./node_modules/vue/dist/vue.min.js"></script>
+	<script type="text/javascript">
+		Vue.component('Child',{
+			template:`
+			<div>
+			<p>我是一个孩子组件</p>
+			<p>{{childdata}}</p>
+			<input type="text" v-model='childdata' @input='changeValue(childdata)'>
+			
+			</div>`,
+			props:['childdata'],
+			methods:{
+				changeValue(val){
+					this.$emit('childHandle',val)
+				}
+			}
+
+			
+		});
+		Vue.component('Parent',{
+			data(){
+				return{
+					msg:'我是父组件的数据'
+				}
+			},
+
+
+			template:`<div>
+			<p>
+			我是父组件</p>
+			<Child :childdata='msg' @chilHandle='childHandle'/>
+			
+			</div>`,
+			methods:{
+				childHandle(val){
+					console.log(val);
+				}
+			}
+
+		});
+		new Vue({
+			el:'#app',
+			data(){
+				return{
+
+				}
+			},
+			template:`<div>
+			<Parent/>
+			
+			</div>`
+		});
+
+	</script>
+	
+</body>
+</html>

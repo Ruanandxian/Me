@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style type="text/css">
+    	.box{
+    		width:300px;
+    		height:300px;
+    		background-color:red;
+    	}
+    	.active{
+    		background-color:green;
+    	}
+    </style>
+
+</head>
+<body>
+	<div id='app'>
+		<h2>{{msg}}</h2>
+		<p v-text="msg"></p>
+		<div v-html="msg2"></div>
+		<div v-text="1+1"></div>
+		<div v-if="isShow">皇家澳门赌场开业了</div>
+		<div v-if="Math.random()>0.5">大于0.5</div>
+		<div v-else>小于0.5</div>
+		<div v-show='!isShow'>隐藏了</div>
+		<div class='box' v-on:click="clickHandler" v-bind:class="{active:!isGreen}"></div>
+		<ul>
+			<li v-for='(item,index) in meanu'>
+				<h2 v-text="item.id"></h2>
+				<h3>{{item.name}}</h3>
+				<em>{{item.price}}</em>
+			</li>
+		</ul>
+		<ul>
+			<li v-for='(value,key) in person'>
+				{{key}}==={{value}}
+			</li>
+		</ul>
+	</div> 
+
+    <script type="text/javascript" src="./node_modules/vue/dist/vue.js"></script>
+    <script type="text/javascript">
+		new Vue({
+			el:"#app",
+			data:function(){
+				return{
+					msg:'指令系统',
+					msg2:'<h2>指令系统</h2>',
+					isShow:'true',
+					isGreen:false,
+					meanu:[
+					{id:1,name:'大菜',price:60},
+					{id:2,name:'中菜',price:40},
+					{id:3,name:'小菜',price:20},
+
+					],
+					person:{
+						name:'鸟',
+						age:'10',
+						habit:'😴',
+
+					},
+
+				}
+				
+			},
+				methods:{
+					clickHandler(e){
+							console.log(this);
+							this.isGreen=!this.isGreen;
+						}
+					}
+			
+
+	});
+
+
+    </script>
+</body>
+</html>

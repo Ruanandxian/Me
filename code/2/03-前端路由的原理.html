@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<a href="#/login">登陆页面</a>
+	<a href="#/register">注册页面</a>
+	<div id='app'></div>
+	<script type="text/javascript">
+		var oDiv=document.getElementById('app');
+		window.onhashchange=function(){
+			console.log(location.hash);
+			switch(location.hash){
+				case'#/login':
+					oDiv.innerHTML='<h2>我是登陆页面</h2>'
+					break;
+				case'#/register':
+					oDiv.innerHTML='<h2>我是注册页面</h2>'
+					break;
+				default:
+					break;
+				}
+		}
+	</script>
+	
+</body>
+</html>

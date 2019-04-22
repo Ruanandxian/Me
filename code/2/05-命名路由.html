@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<div id='app'></div>
+	<script type="text/javascript" src="vue.js"></script>
+	<script type="text/javascript" src="./node_modules/vue-router/dist/vue-router.js"></script>
+	<script type="text/javascript">
+		var Register={
+			template:`<div>
+				我是注册组件
+			</div>`
+		};
+		var Login={
+			template:`<div>
+				我是登陆组件
+			</div>`
+		};
+		var router=new VueRouter({
+			routes:[{
+				path:"/login",
+				name:'login',
+				component:Login
+			},
+			{
+				path:"/register",
+				name:'register',
+				component:Register
+			},
+			]
+		});
+		var App={
+			template:`
+			<div>
+			<router-link :to="{name:'login'}">登陆</router-link>
+			<router-link :to="{name:'register'}">注册</router-link>
+			<router-view></router-view>
+				
+			</div>`
+		};
+		new Vue({
+			el:"#app",
+			data(){
+				return{
+
+				}
+			},
+			components:{
+				App
+			},
+			router:router,
+			template:`<App/>`
+
+		});
+	</script>	
+</body>
+</html>

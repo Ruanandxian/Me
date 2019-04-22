@@ -1,0 +1,1 @@
+export const common='这是一个公共的文件';

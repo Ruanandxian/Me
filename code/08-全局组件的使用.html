@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		.default{
+			    display: inline-block;
+    line-height: 1;
+    white-space: nowrap;
+    cursor: pointer;
+    background: #fff;
+    border: 1px solid #dcdfe6;
+    color: #606266;
+    -webkit-appearance: none;
+    text-align: center;
+    box-sizing: border-box;
+    outline: none;
+    margin: 0;
+    transition: .1s;
+    font-weight: 500;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    padding: 12px 20px;
+    font-size: 14px;
+    border-radius: 4px;
+		}
+	.warning{
+		background-color: #e6a23c;
+    	border-color: #e6a23c;
+	}
+	.dangerous{
+		background-color: #f56c6c;
+    	border-color: #f56c6c;
+
+	}
+	</style>
+</head>
+<body>
+	<div id='app'></div>
+	<script type="text/javascript" src="./node_modules/vue/dist/vue.min.js"></script>
+	<script type="text/javascript">
+		Vue.component('Vbtn',{
+			template:`
+
+			<button class='default' :class='type'>
+				<slot>
+				按钮
+				</slot>
+			</button>`,
+			props:['type']
+		});
+		var Vheader={
+			template:`<div>
+			我是头部组件
+
+			</div>`
+		};
+		var Vasider={
+			template:`<div>
+			我是侧边栏组件
+
+			</div>`
+		};
+		var Vcontent={
+			template:`<div>
+			我是内容组件
+			<Vbtn type='warning'>警告按钮</Vbtn>
+			<Vbtn type='dangerous'>危险按钮</Vbtn>
+			</div>`
+		};
+
+
+		var App={
+			template:`<div>
+			<Vheader/>
+			<div>
+			<Vasider/>
+			<Vcontent/>
+			</div>
+			</div>`,
+			components:{
+				Vheader,
+				Vasider,
+				Vcontent
+			}
+		}
+		new Vue({
+			el:'#app',
+			data(){
+				return{
+
+				}
+			},
+			components:{
+				App
+
+			},
+			template:`<App/>`
+		})
+	</script>
+	
+</body>
+</html>

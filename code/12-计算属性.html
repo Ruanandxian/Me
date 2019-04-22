@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		*{
+			padding:0;
+			margin:0;
+		}
+		ul{
+			list-style:none;
+		}
+		ul li{
+			margin:20px 20px;
+			padding:10px 5px;
+			border-radius:3px;
+		}
+		ul li.active{
+			background-color:#66FFFF;
+		}
+	</style>
+</head>
+<body><div id="app">
+	<audio :src='getCurrentSongSrc'autoplay controls></audio>
+	<ul>
+		<li v-for='(item,index) in musicData' @click='clickHandler(index)' :class='{active:currentIndex==index}'>
+			<h2>{{item.id}}-歌名：{{item.name}}</h2>
+			<p>歌手：{{item.songSrc}}</p>
+		</li>
+	</ul>
+	</div>
+	<script type="text/javascript" src='node_modules/vue/dist/vue.min.js'></script>
+	<script type="text/javascript">
+		var musicData=[
+		{
+			id:1,name:'何曼婷-素颜',author:'许嵩',songSrc:'C:/Users/A/Music/何曼婷 - 素颜.mp3'
+		},
+		{
+			id:2,name:'拆东墙',author:'许嵩',songSrc:'C:/Users/A/Music/许嵩 - 拆东墙.mp3'
+		},
+		{
+			id:3,name:'灰色头像',author:'许嵩',songSrc:'C:/Users/A/Music/许嵩 - 灰色头像.mp3'
+		},
+		{
+			id:4,name:'微博控',author:'许嵩',songSrc:'C:/Users/A/Music/许嵩 - 微博控.mp3'
+		},
+		{
+			id:5,name:'有何不可',author:'许嵩',songSrc:'C:/Users/A/Music/许嵩 - 有何不可.mp3'
+		}
+
+		];
+		new Vue({
+			el:'#app',
+			data(){
+				return{
+					musicData:musicData,
+					currentIndex:0
+				}
+			},
+			computed:{
+				getCurrentSongSrc:function(){
+					return this.musicData[this.currentIndex].songSrc
+				}
+			},
+			methods:{
+				clickHandler(index){
+					this.currentIndex=index;
+
+				}
+
+			}
+		});
+		
+
+	</script>
+	
+</body>
+</html>
