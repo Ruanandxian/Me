@@ -7,6 +7,9 @@
       </li>
     </ul>
     <h3>{{item}}</h3>
+    <h2>{{myProp}}</h2>
+
+    <button @click='changeState'>修改数据</button>
   </div>
 </template>
 
@@ -18,6 +21,11 @@ export default {
 
     }
   },
+  methods:{
+    changeState(){
+      this.$store.dispatch('changeState',{name:'张三'})
+    }
+  },
   computed:{
     count(){
       return this.$store.state.count
@@ -27,6 +35,9 @@ export default {
     },
     item(){
       return this.$store.getters.item(2)
+    },
+    myProp(){
+      return this.$store.getters.myProp;
     }
   }
 };

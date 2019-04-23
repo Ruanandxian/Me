@@ -9,9 +9,30 @@ import Moment from 'moment'
 
 Vue.config.productionTip = false
 
+import store from './store.js'
+
+
 //使用mint-ui引入全部的组件
-import Mint from 'mint-ui';
-Vue.use(Mint);
+// import Mint from 'mint-ui';
+// Vue.use(Mint);
+
+import {Toast,Loadmore,Swipe,SwipeItem,Lazyload,Header,Button,Switch,Badge,Indicator} from 'mint-ui'
+Vue.component(Toast.name,Toast);
+Vue.component(Header.name,Header);
+Vue.component(Swipe.name,Swipe);
+Vue.component(SwipeItem.name,SwipeItem);
+Vue.component(Button.name,Button);
+Vue.component(Badge.name,Badge);
+Vue.component(Switch.name,Switch);
+Vue.component(Loadmore.name,Loadmore);
+Vue.use(Toast);
+Vue.use(Lazyload);
+
+
+
+
+
+
 import 'mint-ui/lib/style.css'
 
 //引入自己书写的全局css
@@ -78,7 +99,9 @@ Vue.filter('controlshow',function(str,num){
 Axios.interceptors.request.use(function (config) {
     // 在发送请求之前做些什么
     //加载提示框
-    Mint.Indicator.open({text:'爱你😍'});
+    // Mint.Indicator.open({text:'爱你😍'});
+    Indicator.open({text:'爱你😍'});
+
     return config;
   }, function (error) {
     // 对请求错误做些什么
@@ -88,7 +111,8 @@ Axios.interceptors.request.use(function (config) {
 // 添加响应拦截器
 Axios.interceptors.response.use(function (response) {
     // 对响应数据做点什么
-    Mint.Indicator.close();
+    // Mint.Indicator.close();
+    Indicator.close();
     return response;
   }, function (error) {
     // 对响应错误做点什么
@@ -104,6 +128,8 @@ Vue.prototype.$bus=EventBus;
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
+  //挂载store实例
+  store,
   router,
   components: { App },
   template: '<App/>'

@@ -77,7 +77,13 @@ export default {
       selected:'',
       tabs:tabs,
       currentIndex:0,
-      min:0//底部栏购物数量
+      // min:0//底部栏购物数量
+
+    }
+  },
+  computed:{
+    min(){
+      return this.$store.getters.getShopNum;
     }
   },
   methods:{
@@ -93,13 +99,14 @@ export default {
   }
   },
   created(){
-    // console.log('11123465');
-    this.$bus.$on('sendPickNum',(data)=>{
-      // console.log(data);
-      this.min+=data;
-    });
-    //过去购物车的总数
-  this.min=GoodsTool.getTotalCount();
+    // // console.log('11123465');
+    // this.$bus.$on('sendPickNum',(data)=>{
+    //   // console.log(data);
+    //   this.min+=data;
+    // });
+    //获取购物车的总数
+  // this.min=GoodsTool.getTotalCount();
+  this.$store.dispatch('changeShopNum',GoodsTool.getTotalCount());
 }
 };
 

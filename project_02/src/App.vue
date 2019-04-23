@@ -3,7 +3,7 @@
     <h1>{{count}}</h1>
     <!-- <h2>{{countAlise}}</h2> -->
     <!-- <h3>{{countLocalState}}</h3> -->
-    <h4>{{msg}}</h4>
+    <!-- <h4>{{msg}}</h4> -->
     <button @click='addCount'>同步计算</button>
     <button @click='addCountByasync'>异步mutation计算</button>
     <button @click='addCountByasync2'>异步actions计算</button>
@@ -83,13 +83,19 @@ export default {
 
   computed:{
     // 当前组件的计算属性的方法跟store中state中key是一样的，那么可以使用下面此种简便方式
-    ...mapState([
+  //   ...mapState([
 
-      'count',
-      'msg'
-      ])
+  //     'count',
+  //     'msg'
+  //     ])
+
+  count(){
+    //封装模块
+  // return this.$store.state.a.count;
+  return this.$store.getters.count
   }
 
+  }
 
 
 

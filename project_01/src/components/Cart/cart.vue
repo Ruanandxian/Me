@@ -143,18 +143,26 @@ import GoodsTool from  '../../GoodsTool.js'
 					return
 				}else{
 					shop.num--;
+					this.$store.dispatch('addShopNumByAction',-1)
 				}
 			},
 			addnum(shop){
 				shop.num++;
+				this.$store.dispatch('addShopNumByAction',1)
 			},
 			del(shop,index){
 				//删除元素
 				this.list.splice(index,1);
 				// console.log(this.list.splice(index,1));
 				//删除shop
-				delete GoodsTool[shop.id];
+				// delete GoodsTool[shop.id];
 				// console.log(delete GoodsTool[shop.id]);
+
+				GoodsTool.removeGoods(shop.id);
+
+				let num=shop.num;
+				this.$store.dispatch('addShopNumByAction',-num);
+
 			}
 		},
 		created(){

@@ -1,18 +1,32 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 // import HelloWorld from '@/components/HelloWorld'
-import Home from '@/components/Home/Home'
-import Vip from '@/components/Vip/vip'
-import Cart from '@/components/Cart/Cart'
-import Search from '@/components/Search/search'
-import NewsList from '@/components/News/NewsList'
-import NewsDetail from '@/components/News/NewsDetail'
-import PhotoList from '@/components/Photo/PhotoList'
-import PhotoDetail from '@/components/Photo/PhotoDetail'
-import GoodList from '@/components/Good/GoodList'
-import GoodsDetail from '@/components/Good/GoodsDetail'
-import GoodsComment from '@/components/Good/GoodsComment'
+// import Home from '@/components/Home/Home'
+// import Vip from '@/components/Vip/vip'
+// import Cart from '@/components/Cart/Cart'
+// import Search from '@/components/Search/search'
+// import NewsList from '@/components/News/NewsList'
+// import NewsDetail from '@/components/News/NewsDetail'
+// import PhotoList from '@/components/Photo/PhotoList'
+// import PhotoDetail from '@/components/Photo/PhotoDetail'
+// import GoodList from '@/components/Good/GoodList'
+// import GoodsDetail from '@/components/Good/GoodsDetail'
+// import GoodsComment from '@/components/Good/GoodsComment'
 
+const Home =()=>import( '@/components/Home/Home');
+const Vip =()=>import( '@/components/Vip/vip');
+const Cart =()=>import( '@/components/Cart/Cart');
+const Search =()=>import( '@/components/Search/search');
+const NewsList =()=>import( '@/components/News/NewsList');
+const NewsDetail =()=>import( '@/components/News/NewsDetail');
+const PhotoList =()=>import( '@/components/Photo/PhotoList');
+const PhotoDetail =()=>import( '@/components/Photo/PhotoDetail');
+const GoodList =()=>import( '@/components/Good/GoodList');
+const GoodsDetail =()=>import( '@/components/Good/GoodsDetail');
+const GoodsComment =()=>import( '@/components/Good/GoodsComment');
+
+
+// const Foo = () => import('./Foo.vue')
 
 
 

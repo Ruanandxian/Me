@@ -22,6 +22,11 @@ module.exports = {
       ? config.build.assetsPublicPath
       : config.dev.assetsPublicPath
   },
+  //告诉webpack第三方包不需要打包,可以使用cdn引入
+  // externals:{
+  //   'vue':'Vue',
+  //   'moment':'Moment'
+  // },
   resolve: {
     extensions: ['.js', '.vue', '.json'],
     alias: {

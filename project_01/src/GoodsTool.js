@@ -14,6 +14,11 @@ obj.getGoodsList=function(){
 }
 
 
+obj.removeGoods=function(id){
+	let goodsList=this.getGoodsList();
+	delete goodsList[id];
+	return this.saveGoods(goodsList);
+}
 //增加商品
 obj.add=function(goods){
 	let goodsList=this.getGoodsList();

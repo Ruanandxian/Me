@@ -76,11 +76,16 @@ import GoodsTool from '../../GoodsTool.js'
 				this.isExist=false;
 				
 				//触发bus 对象绑定的事件
-				this.$bus.$emit('sendPickNum',this.picknum);
+				// this.$bus.$emit('sendPickNum',this.picknum);
+
+				this.$store.dispatch('addShopNumByAction',this.picknum)
 				// this.me=this.$route.params.id;
+
+
+				//将添加到购物车的数据，保存到本地存储对象中
 				GoodsTool.add({
 					id:this.$route.params.id,
-					num:this.picknum
+					num:this.$store.getters.getShopNum
 				})
 			},
 			handler(){
