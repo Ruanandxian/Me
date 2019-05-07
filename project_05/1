@@ -1,0 +1,152 @@
+const PrerenderSPAPlugin=require('prerender-spa-plugin')
+//调用渲染器
+const Renderer=PrerenderSPAPlugin.PuppeteerRenderer
+
+
+//预渲染插件的配置
+    new PrerenderSPAPlugin({
+      staticDir:path.join(__dirname,'../dist'),
+      routes:['/','/about'],
+      //这个配置很重要,如果没有这个配置,也不会进行预编译
+      renderer:new Renderer({
+        inject:{
+          foo:'far'
+        },
+        headless:false,
+        //在项目的入口中使用doucument.dispatchEvent(new Event('render-event'))
+        renderAfterDocumentEvent:'render-event'
+      })
+    }),
+
+
+    <template>
+	<div>
+		关于我页面
+	</div>
+</template>
+
+
+<script type="text/javascript">
+	export default{
+		name:'About',
+		data(){
+			return{
+
+			};
+		},
+	};
+</script>
+
+<style lang='css' scoped>
+	
+</style>
+
+
+<template>
+	<div>
+		我是首页
+		<router-link to='/test'>去测试页面</router-link>
+	</div>
+</template>
+
+
+<script type="text/javascript">
+	export default{
+		name:'Home',
+		data(){
+			return{
+
+			};
+		},
+	};
+</script>
+
+<style lang='css' scoped>
+	
+</style>
+
+
+
+<template>
+	<div>
+		测试页面
+	</div>
+</template>
+
+
+<script type="text/javascript">
+	export default{
+		name:'Test',
+		data(){
+			return{
+
+			};
+		},
+	};
+</script>
+
+<style lang='css' scoped>
+	
+</style>
+
+
+
+<template>
+  <div id="app">
+    <router-link to='/'>首页</router-link>
+    <router-link to='/about'>关于</router-link>
+    <router-view/>
+  </div>
+</template>
+
+<script>
+export default {
+  name: 'App'
+}
+</script>
+
+<style>
+#app {
+  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  color: #2c3e50;
+  margin-top: 60px;
+}
+</style>
+
+
+mounted(){
+  	document.dispatchEvent(new Event('render-event'))
+  }
+
+  import Vue from 'vue'
+import Router from 'vue-router'
+// import HelloWorld from '@/components/HelloWorld'
+import Home from '@/components/Home'
+import About from '@/components/About'
+import Test from '@/components/Test'
+
+
+Vue.use(Router)
+
+export default new Router({
+  routes: [
+    {
+      path: '/',
+      name: 'Home',
+      component: Home
+    },
+    {
+      path: '/about',
+      name: 'About',
+      component:About
+    },
+    {
+      path: '/test',
+      name: 'Test',
+      component: Test
+    },
+  ]
+})
