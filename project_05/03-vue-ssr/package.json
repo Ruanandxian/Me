@@ -7,11 +7,15 @@
   "scripts": {
     "dev": "webpack-dev-server --inline --progress --config build/webpack.dev.conf.js",
     "start": "npm run dev",
-    "build": "node build/build.js"
+    "build": "node build/build.js",
+    "server": "webpack --config build/webpack.server.conf.js",
+    "client":"webpack --config build/webpack.client.conf.js"
+
   },
   "dependencies": {
     "vue": "^2.5.2",
-    "vue-router": "^3.0.1"
+    "vue-router": "^3.0.1",
+    "vue-server-renderer": "^2.6.10"
   },
   "devDependencies": {
     "autoprefixer": "^7.1.2",
@@ -58,5 +62,8 @@
     "> 1%",
     "last 2 versions",
     "not ie <= 8"
-  ]
+  ],
+  "main": ".postcssrc.js",
+  "keywords": [],
+  "license": "ISC"
 }
