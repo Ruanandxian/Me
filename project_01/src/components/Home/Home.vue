@@ -71,12 +71,12 @@
 	
 </template>
 <script>
-import src1 from '../../assets/新闻资讯.png'
-import src2 from '../../assets/图文分享.png'
-import src3 from '../../assets/商品展示.png'
-import src4 from '../../assets/咨询.png'
-import src5 from '../../assets/留言反馈.png'
-import src6 from '../../assets/联系我们.png'
+import src1 from '../../assets/xinwenzixun.png'
+import src2 from '../../assets/tuwenfenxiang.png'
+import src3 from '../../assets/shangpinzhanshi.png'
+import src4 from '../../assets/zixun.png'
+import src5 from '../../assets/liuyanfankui.png'
+import src6 from '../../assets/lianxiwomen.png'
 // import tu1 from '../../assets/320011_300.jpg'
 // import tu2 from '../../assets/322072_300.jpg'
 // import tu3 from '../../assets/360wallpaper.jpg'

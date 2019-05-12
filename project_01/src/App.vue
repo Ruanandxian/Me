@@ -52,10 +52,10 @@
 <script>
 import GoodsTool from './GoodsTool.js'
 import EventBus from './EventBus.js'
-import soup from './assets/汤.png'
-import milk from './assets/牛奶.png'
-import cap from './assets/茶杯.png'
-import food from './assets/食物篮.png'
+import soup from './assets/tang.png'
+import milk from './assets/niunai.png'
+import cap from './assets/chabei.png'
+import food from './assets/shiwulan.png'
 let tabs=[
 {
   id:1,title:'首页',imgSrc:soup,routerName:{name:'home'}

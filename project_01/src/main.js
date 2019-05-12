@@ -6,6 +6,7 @@ import router from './router'
 import Axios from 'axios'
 import VueJsonp from 'vue-jsonp'
 import Moment from 'moment'
+// import 'lib-flexible'
 
 Vue.config.productionTip = false
 
