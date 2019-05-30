@@ -1,0 +1,21 @@
+{
+  "name": "view_koa",
+  "version": "1.0.0",
+  "description": "",
+  "main": "Controller_01.js",
+  "dependencies": {
+    "koa-bodyparser": "^4.2.1",
+    "koa": "^2.0.0",
+    "koa-router": "^7.4.0",
+    "mime": "^2.4.2",
+    "mz": "^2.7.0",
+    "nunjucks": "^3.2.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

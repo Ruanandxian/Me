@@ -2,7 +2,7 @@ const Koa = require('koa');
 
 const bodyParser = require('koa-bodyparser');
 
-const controller = require('./Controller_01');
+const controller = require('./controller');
 
 const templating = require('./templating');
 
@@ -12,19 +12,19 @@ const isProduction=process.env.NODE_ENV==='production';
 
 // 第一个middleware是记录URL以及页面执行时间：
 app.use(async (ctx,next)=>{
-    console.log(`Process ${ctx.request.methods} ${ctx.request.url}`)
+    console.log(`Process ${ctx.request.method} ${ctx.request.url}`);
     var
         start=new Date().getTime(),
         execTime;
     await next();
-    execTime=new Date(),getTime()-start;
+    execTime=new Date().getTime()-start;
     ctx.response.set('X-Response-Time',`${execTime}ms`)
 })
 
 // 第二个middleware处理静态文件
 if(!isProduction){
-    let staticFile=require('./static-files');
-    app.use(staticFile('/static/',__dirname+'/static'))
+    let staticFiles=require('./static-files');
+    app.use(staticFiles('/static/',__dirname+'/static'))
 }
 
 // 第三个middleware解析POST请求：
