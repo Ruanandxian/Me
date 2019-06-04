@@ -39,7 +39,7 @@ export default {
 		margin-left:.2rem
 		padding-left:.2rem
 		background:#fff
-		border-radius:.1rem
+		border-radius:.1rem//添加圆角
 		color:#ccc
 	.header-right
 		width:1.24rem
