@@ -70,7 +70,9 @@ export default {
         }
     },
     mounted(){
-        this.scroll=new Bscroll(this.$refs.wrapper,{disableMouse:false,mouseWheel:true,disableTouch:false})
+        this.scroll=new Bscroll(this.$refs.wrapper,{click: true,disableMouse:false,mouseWheel:true,disableTouch:false})
+        // this.scroll=new Bscroll(this.$refs.wrapper,{disableMouse:false,mouseWheel:true,disableTouch:false})
+
         // console.log(this.scroll)
     },
 }

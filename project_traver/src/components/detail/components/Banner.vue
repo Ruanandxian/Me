@@ -1,7 +1,7 @@
 <template>
 <div>
     <div class='banner' @click='handleclickgallary'>
-        <img class='banner-img' src="http://img8.zol.com.cn/bbs/upload/23052/23051483.jpg">
+        <img class='banner-img' :src='tu3'>
         <div class='banner-info'>
             <div class='banner-title'>
                 开封水系之-七盛角
@@ -21,6 +21,9 @@
 <script>
 import CommonGallary from 'common/gallary/Gallary'
 import FadeAnimation from 'common/fade/FadeAnimation'
+import tu1 from '../../../assets/tim.jpg'
+import tu2 from '../../../assets/timg.jpg'
+import tu3 from '../../../assets/tu3.jpg'
 export default {
     name:'DetailBanner',
     props:{
@@ -30,9 +33,10 @@ export default {
     },
     data () {
         return{
+            tu3:tu3,
             showgallary:false,
-            imgs:["http://img8.zol.com.cn/bbs/upload/18665/18664135.JPG",
-            "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1571378568&di=e04438c9db1d48ab354d909dc9a3cdd9&imgtype=jpg&er=1&src=http%3A%2F%2Fimg.pconline.com.cn%2Fimages%2Fupload%2Fupc%2Ftx%2Fphotoblog%2F1311%2F02%2Fc3%2F28247745_28247745_1383380512843.jpg",
+            imgs:[tu1,
+            tu2,
             ]
         }
     },
