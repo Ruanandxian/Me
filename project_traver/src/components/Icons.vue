@@ -14,18 +14,18 @@
 </template>
 
 <script>
-import src1 from "../assets/dengpao-.png";
-import src2 from "../assets/dianyuan-.png";
-import src3 from "../assets/erji-.png";
-import src4 from "../assets/fuzhi-.png";
-import src5 from "../assets/guanli-.png";
-import src6 from "../assets/huaban-.png";
-import src7 from "../assets/huishouzhan-.png";
-import src8 from "../assets/jishibu-.png";
-import src9 from "../assets/lianxiren-.png";
-import src10 from "../assets/NFC-.png";
-import src11 from "../assets/suo-.png";
-import src12 from "../assets/weizhi-.png";
+import src1 from "../assets/biaoqing.png";
+import src2 from "../assets/dianshiji.png";
+import src3 from "../assets/diqiuyi.png";
+import src4 from "../assets/gaoreliang.png";
+import src5 from "../assets/jishiben.png";
+import src6 from "../assets/lipin.png";
+import src7 from "../assets/naozhong.png";
+import src8 from "../assets/qiche.png";
+import src9 from "../assets/reqiqiu.png";
+import src10 from "../assets/shuiguo.png";
+import src11 from "../assets/zhiwu.png";
+import src12 from "../assets/zhunshida.png";
 
 export default {
   name: "HomeIcons",
@@ -44,62 +44,62 @@ export default {
         {
           id: 1,
           url: src1,
-          desc: "灯泡"
+          desc: "表情"
         },
         {
           id: 2,
           url: src2,
-          desc: "电源"
+          desc: "电视机"
         },
         {
           id: 3,
           url: src3,
-          desc: "耳机"
+          desc: "地球仪"
         },
         {
           id: 4,
           url: src4,
-          desc: "斧子"
+          desc: "高热量"
         },
         {
           id: 5,
           url: src5,
-          desc: "管理"
+          desc: "记事本"
         },
         {
           id: 6,
           url: src6,
-          desc: "滑板"
+          desc: "礼品"
         },
         {
           id: 7,
           url: src7,
-          desc: "回收站"
+          desc: "闹钟"
         },
         {
           id: 8,
           url: src8,
-          desc: "记事本"
+          desc: "汽车"
         },
         {
           id: 9,
           url: src9,
-          desc: "联系人"
+          desc: "热气球"
         },
         {
           id: 10,
           url: src10,
-          desc: "支付"
+          desc: "水果"
         },
         {
           id: 11,
           url: src11,
-          desc: "小锁"
+          desc: "植物"
         },
         {
           id: 12,
           url: src12,
-          desc: "位置"
+          desc: "准时达"
         }
       ]
     };

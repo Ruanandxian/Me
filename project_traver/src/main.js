@@ -6,8 +6,10 @@ import router from './router'
 import 'styles/reset.css'
 import 'styles/border.css'
 import 'styles/iconfont.css'
+import 'babel-polyfill'
 import fastClick from 'fastclick'
 import VueAwesomeSwiper from 'vue-awesome-swiper'
+import store from './store/index'
 
 import '../node_modules/swiper/dist/css/swiper.css'
 Vue.use(VueAwesomeSwiper)
@@ -18,6 +20,7 @@ fastClick.attach(document.body)
 new Vue({
   el: '#app',
   router,
+  store,
   components: { App },
   template: '<App/>'
 })
