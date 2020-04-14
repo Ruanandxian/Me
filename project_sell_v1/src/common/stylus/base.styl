@@ -1,0 +1,31 @@
+body,html
+    line-height:1
+    font-weight:200
+    // 默认字体
+    font-family: 'PingFang SC','STHeitiSC-Light',
+
+// 实现根据dpi手机屏幕大小进行缩放
+// 1px的在手机端的解决办法
+
+//  清除浮动的通用写法
+.clearfix
+    display:inline-block
+    &:after
+        display:block
+        content:"."
+        heigth:0
+        line-height:0
+        clear:both
+        visibility:hidden
+@media (-webkit-min-device-pixel-ratio:1.5),(min-device-pixel-ratio:1.5)
+    .border-1px
+        &::after
+            // webkit-transform可以对元素进行旋转元素，缩放元素，倾斜元素等等
+            -webkit-transform: scaleY(0.7)
+            transform: scaleY(0.7)
+
+@media (-webkit-min-device-pixel-ratio:2),(min-device-pixel-ratio:2)
+    .border-1px
+        &::after
+            -webkit-transform: scaleY(0.5)
+            transform: scaleY(0.5)
