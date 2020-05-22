@@ -47,6 +47,7 @@ option = webdriver.ChromeOptions()
 # prefs = {"profile.managed_default_content_settings.images": 2}
 # option.add_experimental_option("prefs", prefs)
 # option.add_argument("blink-settings=imagesEnabled=false")
+option.add_argument("--proxy-servers=https://125.123.154.6:3000")
 option.add_experimental_option('excludeSwitches', ['enable-automation'])
 option.add_argument('headless')
 option.add_argument('no-sandbox')
@@ -249,16 +250,16 @@ def loginGet():
 def getmoney(url):
     browser = webdriver.Chrome(executable_path=r"C:\more\chromedriver\chromedriver.exe", options=option)
     browser.get(url)
-    mosun = browser.find_elements_by_class_name("csgo_value")
-    # print(mosun[0].text)
+    maijia = browser.find_elements_by_class_name('j_shoptip_handler')
     price = browser.find_elements_by_class_name("f_Strong")
     # print(price[1].text)
     name = browser.find_element_by_tag_name("h1").text
-    browser.close()
-    print(name)
+    URL=browser.current_url
     L = []
     L.append(name)
-    Solve(L, name, mosun, price)
+    # print(URL)
+    Solve(L, name, maijia, price,URL)
+    browser.close()
 
 settings=[]
 def All_Url():
@@ -280,15 +281,18 @@ def MM(setting):
     # p.join()
     smtpObj.quit()
 
-def Solve(L,name,mosun,price):
+def Solve(L,name,maijia,price,URL):
     try:
-        for i, j in zip(range(len(mosun)), range(len(price))):
+        print(name)
+        for i, j in zip(range(len(maijia)), range(len(price))):
             two = price[j + 1].text
             Price = re.findall(r'[0-9\.]+', two)
             L.append(float(Price[0]))
-        money = L[1] * 1.025 + 3
-        duibi = L[4]
-        if money < duibi and (L[4]-L[1])<50:
+        L.append(URL)
+        # print(L)
+        money = L[1] * 1.025 + 1.5
+        duibi = L[2]
+        if money < duibi and (L[3]-L[1])<10:
             SendEmail(L, name)
     except:
         print("0.0")
@@ -311,7 +315,7 @@ if __name__ == '__main__':
     def long():
         time.sleep(5)
         while True:
-            with ThreadPoolExecutor() as pool:
+            with ThreadPoolExecutor(max_workers=5) as pool:
                 pool.map(MM, settings)
                 time.sleep(5)
 
