@@ -13,7 +13,7 @@
     "axios": "^0.18.0",
     "lib-flexible": "^0.3.2",
     "mint-ui": "^2.2.13",
-    "moment": "^2.24.0",
+    "moment": "^2.29.2",
     "px2rem-loader": "^0.1.9",
     "vue": "^2.5.2",
     "vue-jsonp": "^0.1.8",
